@@ -15,8 +15,8 @@ spec:
         app: php-fpm
     spec:
       containers:
-        - image: gcr.io/dark-hall-244312/godel-php-fpm
-          name: godel-php-k8s-demo-php-fpm
+        - image: gcr.io/k8s-telepresence-demo/php-fpm
+          name: php-k8s-demo-php-fpm
           env:
             - name: DATABASE_URL
               valueFrom:

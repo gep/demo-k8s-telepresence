@@ -9,7 +9,7 @@ spec:
     spec:
       containers:
         - name: php-run-migrations
-          image: gcr.io/dark-hall-244312/godel-php-cli-run-migrations
+          image: gcr.io/k8s-telepresence-demo/php-cli-run-migrations
           env:
             - name: DATABASE_URL
               valueFrom:

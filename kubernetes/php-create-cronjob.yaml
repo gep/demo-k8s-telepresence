@@ -10,5 +10,5 @@ spec:
         spec:
           containers:
             - name: php-generate-goods
-              image: gcr.io/dark-hall-244312/godel-php-cli-run-generator
+              image: gcr.io/k8s-telepresence-demo/php-cli-run-generator
           restartPolicy: Never

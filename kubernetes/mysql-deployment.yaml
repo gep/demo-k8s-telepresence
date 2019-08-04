@@ -15,16 +15,16 @@ spec:
         app: mysql
     spec:
       containers:
-        - image: gcr.io/dark-hall-244312/godel-mysql
-          name: "godel-php-k8s-demo-mysql"
+        - image: gcr.io/k8s-telepresence-demo/mysql
+          name: "php-k8s-demo-mysql"
 
           env:
             - name: MYSQL_ROOT_PASSWORD
               value: "42"
             - name: MYSQL_DATABASE
-              value: "godel-k8s-demo"
+              value: "k8s-demo"
             - name: MYSQL_USER
-              value: "godel-k8s-demo"
+              value: "k8s-demo"
             - name: MYSQL_PASSWORD
               value: "42"
           ports:

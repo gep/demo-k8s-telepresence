@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: godel-k8s-ingress-entry
+  name: k8s-ingress-entry
 spec:
   rules:
     - http:
