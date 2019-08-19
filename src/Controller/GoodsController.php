@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Good;
 use App\Repository\GoodRepository;
 use App\Services\Goods\GoodsService;
+use App\Services\Serializer\EntitySerializer;
 use ProbablyRational\RandomNameGenerator\All;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
