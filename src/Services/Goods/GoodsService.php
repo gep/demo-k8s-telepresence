@@ -20,9 +20,11 @@ class GoodsService
         $this->em = $em;
     }
 
-    public function createGoods(int $amount): int
+    public function createGoods(int $amount): iterable
     {
         $namesGenerator = All::create();
+
+        $products = [];
 
         foreach (range(1, $amount) as $itemNumber) {
             $product = new Good();
@@ -30,11 +32,13 @@ class GoodsService
             $product->setPrice((float)(rand(0, 200) + (rand(0, 100) / 100)));
 
             $this->em->persist($product);
+
+            array_push($products, $product);
         }
 
         // actually executes the queries (i.e. the INSERT query)
         $this->em->flush();
 
-        return $amount;
+        return $products;
     }
 }

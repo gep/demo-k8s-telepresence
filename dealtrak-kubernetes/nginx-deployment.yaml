@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - image: 375550435474.dkr.ecr.eu-west-2.amazonaws.com/nginx:latest
+          name: "php-k8s-demo-nginx"
+          ports:
+            - containerPort: 80
+              name: nginx

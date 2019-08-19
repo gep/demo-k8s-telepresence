@@ -38,6 +38,9 @@ services:
         context: .
         dockerfile: docker/php-fpm/Dockerfile
       container_name: php-k8s-demo-php-fpm
+      environment:
+        - XDEBUG_REMOTE_HOST_IP=docker.for.mac.localhost
+        - XDEBUG_REMOTE_PORT=9011
       depends_on:
         - mysql
       working_dir: /application

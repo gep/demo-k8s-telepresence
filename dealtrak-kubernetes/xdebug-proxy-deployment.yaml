@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xdebug-proxy
+  labels:
+    app: xdebug-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xdebug-proxy
+  template:
+    metadata:
+      labels:
+        app: xdebug-proxy
+    spec:
+      containers:
+        - image: myparcel/dbgp-proxy
+          name: php-k8s-demo-xdebug-proxy
+          env:
+            - name: IDE_PORT
+              value: 0.0.0.0:9001
+            - name: DEBUG_PORT
+              value: 0.0.0.0:9010
+          ports:
+            - containerPort: 9010
+              name: xdebug-proxy
+            - containerPort: 9001
+              name: xdebug-ide

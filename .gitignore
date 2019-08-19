@@ -1,0 +1,8 @@
+.envrc
+.idea
+.mysql-data
+kubeconfig
+log/xdebug.log
+telepresence.log
+var/cache/*
+vendor

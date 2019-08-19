@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - image: 375550435474.dkr.ecr.eu-west-2.amazonaws.com/mysql:latest
+          name: "php-k8s-demo-mysql"
+
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "42"
+            - name: MYSQL_DATABASE
+              value: "k8s-demo"
+            - name: MYSQL_USER
+              value: "k8s-demo"
+            - name: MYSQL_PASSWORD
+              value: "42"
+          ports:
+            - containerPort: 3306
+              name: mysql
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql
+              subPath: mysql
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-volumeclaim

@@ -15,7 +15,7 @@ spec:
         app: php-fpm
     spec:
       containers:
-        - image: gcr.io/k8s-telepresence-demo/php-fpm
+        - image: 375550435474.dkr.ecr.eu-west-2.amazonaws.com/php-fpm:latest
           name: php-k8s-demo-php-fpm
           env:
             - name: DATABASE_URL

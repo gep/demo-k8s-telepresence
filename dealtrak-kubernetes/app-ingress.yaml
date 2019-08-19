@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: k8s-ingress-entry
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: nginx-nodeport
+              servicePort: 80
+#          - path: /goods/create/*
+#            backend:
+#              serviceName: nginx-nodeport
+#              servicePort: 80
+#          - path: /goods
+#            backend:
+#              serviceName: nginx-nodeport
+#              servicePort: 80

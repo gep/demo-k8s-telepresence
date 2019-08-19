@@ -1,0 +1,14 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: php-generate-goods
+spec:
+  schedule: "00 09 * * 1"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: php-generate-goods
+              image: gcr.io/k8s-telepresence-demo/php-cli-run-generator
+          restartPolicy: Never

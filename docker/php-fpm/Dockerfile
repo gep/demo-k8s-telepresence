@@ -15,4 +15,19 @@ RUN apt-get update \
     && apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
 ADD . /application
-ADD ./docker/php-fpm/php-ini-overrides.ini /etc/php/7.3/fpm/conf.d/99-overrides.ini
+#ADD ./docker/php-fpm/php-ini-overrides.ini /etc/php/7.3/fpm/conf.d/99-overrides.ini
+#ADD ./docker/php-fpm/www.conf /etc/php/7.3/fpm/pool.d/www.conf
+#ADD ./docker/php-fpm/pool-overrrides.conf /etc/php/7.3/fpm/pool.d/99-overrides.ini
+ADD ./docker/php-fpm/xdebug.ini /etc/php/7.3/fpm/conf.d/20-xdebug.ini
+
+RUN chmod -R 777 log
+RUN chmod -R 777 var/cache
+
+#EXPOSE 9001
+
+ENV XDEBUG_REMOTE_HOST_IP=docker.for.mac.localhost
+ENV XDEBUG_REMOTE_PORT=9001
+ENV PHP_IDE_CONFIG="serverName=k8s-demo"
+
+
+

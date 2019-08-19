@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: php-run-migrations
+spec:
+  template:
+    metadata:
+      name: php-run-migrations
+    spec:
+      containers:
+        - name: php-run-migrations
+          image: gcr.io/k8s-telepresence-demo/php-cli-run-migrations
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: mysql
+                  key: url
+            - name: APP_ENV
+              value: prod
+      restartPolicy: Never
