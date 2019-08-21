@@ -34,10 +34,12 @@ class GoodsController extends AbstractController
         /** @var GoodRepository $repository */
         $repository = $this->getDoctrine()->getRepository(Good::class);
 
-        $goods = array_map(function($good) {
-            $good['name'] = $good['name'] . '_custom';
-            return $good;
-        }, $repository->getGoods());
+        $goods = $repository->getGoods();
+
+//        $goods = array_map(function($good) {
+//            $good['name'] = $good['name'] . '_custom';
+//            return $good;
+//        }, $goods);
 
         $response = $this->json([
             'goods' => $goods,
