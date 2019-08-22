@@ -30,12 +30,13 @@ Once you have the access to your namespace and can execute `kubectl` in the proj
 
 1. Create a secret for DB connection `./dealtrak-kubernetes/bin/create-secret.sh` to create a database secret for php workers
 2. Then create mysql volume: `kubectl create -f dealtrak-kubernetes/mysql-volume.yaml`
-3. Mysql service: `kubectl create -f dealtrak-kubernetes/mysql-deployment.yaml`
-4. PHP fpm deployment: `kubectl create -f dealtrak-kubernetes/php-fpm-deployment.yaml`
-5. PHP service: `kubectl create -f dealtrak-kubernetes/php-fpm-service.yaml`
-6. Run migrations for the database: `kubectl create -f dealtrak-kubernetes/php-migrations-job.yaml`.
-7. Nginx deployment: `kubectl create -f dealtrak-kubernetes/nginx-deployment.yaml`
-8. Nginx loadbalancer: `kubectl create -f dealtrak-kubernetes/nginx-loadbalancer.yaml`
+3. Mysql deployment: `kubectl create -f dealtrak-kubernetes/mysql-deployment.yaml`
+4. Mysql service: `kubectl create -f dealtrak-kubernetes/mysql-service.yaml`
+5. PHP fpm deployment: `kubectl create -f dealtrak-kubernetes/php-fpm-deployment.yaml`
+6. PHP service: `kubectl create -f dealtrak-kubernetes/php-fpm-service.yaml`
+7. Run migrations for the database: `kubectl create -f dealtrak-kubernetes/php-migrations-job.yaml`.
+8. Nginx deployment: `kubectl create -f dealtrak-kubernetes/nginx-deployment.yaml`
+9. Nginx loadbalancer: `kubectl create -f dealtrak-kubernetes/nginx-loadbalancer.yaml`
 
 Finally you have the backend demo app fully installed.
 
